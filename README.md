@@ -25,3 +25,15 @@ npm install passport-saml
 openssl req -x509 -newkey rsa:4096 -keyout certs\key.pem 
 -out certs\cert.pem -nodes -days 900
 ```
+5. Run idp docker with following command
+```
+docker run --name='testsamlidp' -p 8080:8080 -p 8443:8443 -e SIMPLESAMLPHP_SP_ENTITY_ID=saml-poc -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost:4300/login/callback -d kristophjunge/test-saml-idp
+```
+6. Retrieve the content of the X509Certificate Tag and copy it in the idp_key.pem file from: http://localhost:8080/simplesaml/saml2/idp/metadata.php
+7. Start node server
+```
+node index
+```
+7. Login through the idp with user1 and user1pass
+http://localhost:4300/login
+8. Install SAML browser plugins to see the SAML Dance
