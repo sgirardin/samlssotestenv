@@ -28,6 +28,7 @@ npm install passport-saml
 ```
 node index
 ```
-5. Login through the idp with user1 and user1pass
+5. Install SAML plugin for your favorite browser to see the SAML Dance
+6. Login through the idp (user1 and user1pass, user2 and user2pass)
 http://localhost:4300/login
-6. Install SAML plugin for your favorite browser to see the SAML Dance
+
